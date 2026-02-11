@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import heroImg from '../../public/images/hero.png';
+---
+
+<section class="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center">
+  <!-- Background Image with Ken Burns effect -->
+  <div class="absolute inset-0 z-0 scale-110 animate-ken-burns">
+    <img 
+      src="/images/hero.png" 
+      alt="Luxury Custom Furniture" 
+      class="h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+    <span class="block font-sans text-bg-cream text-xs md:text-sm tracking-[0.4em] uppercase mb-6 animate-fade-up opacity-0">
+      DISEÑO Y FABRICACIÓN A MEDIDA
+    </span>
+    
+    <h1 class="font-serif text-bg-cream text-5xl md:text-8xl leading-tight mb-8 animate-fade-up [animation-delay:200ms] opacity-0">
+      No fabricamos en serie.<br />
+      <span class="italic">Fabricamos Legado.</span>
+    </h1>
+
+    <p class="font-sans text-bg-cream/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up [animation-delay:400ms] opacity-0">
+      Olvida la obsolescencia. En Muebles NAGU creamos piezas en madera nativa que se adaptan a tu espacio, no al revés.
+    </p>
+
+    <div class="animate-fade-up [animation-delay:600ms] opacity-0">
+      <a href="https://wa.me/569XXXXXXXX" class="inline-block bg-accent-gold text-text-coffee px-10 py-5 font-sans font-bold uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-luxury">
+        Iniciar Mi Proyecto
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+    <span class="text-bg-cream text-[10px] uppercase tracking-widest">Scroll</span>
+    <div class="w-[1px] h-12 bg-bg-cream/50 overflow-hidden">
+      <div class="w-full h-full bg-accent-gold animate-scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-ken-burns {
+    animation: ken-burns 20s infinite alternate ease-in-out;
+  }
+
+  @keyframes ken-burns {
+    from { transform: scale(1.1) translate(0, 0); }
+    to { transform: scale(1.2) translate(-2%, -2%); }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-scroll-line {
+    animation: scroll-line 2s infinite;
+  }
+
+  @keyframes scroll-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+</style>

@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-cream: #F9F7F2;
+  --color-text-coffee: #3c3733;
+  --color-accent-gold: #fab206;
+  --color-bg-forest: #2e4d3d;
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
+  
+  --shadow-luxury: 0 20px 40px -10px rgba(60, 55, 51, 0.15);
+}
+
+@layer base {
+  :root {
+    --background: var(--color-bg-cream);
+    --foreground: var(--color-text-coffee);
+  }
+
+  body {
+    @apply bg-bg-cream text-text-coffee font-sans antialiased;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom Utilities */
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.shadow-luxury {
+  box-shadow: var(--shadow-luxury);
+}

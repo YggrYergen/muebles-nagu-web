@@ -1,0 +1,112 @@
+---
+---
+
+<section id="proceso" class="py-24 px-6 md:py-32 bg-bg-cream overflow-hidden">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-32">
+      <span class="font-sans text-xs tracking-[0.4em] uppercase text-text-coffee/60 mb-4 block">Metodología NAGU</span>
+      <h2 class="font-serif text-5xl md:text-7xl">De tu mente <br/> a tu espacio.</h2>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical Line -->
+      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-text-coffee/10 -translate-x-1/2">
+        <div id="timeline-progress" class="w-full h-0 bg-accent-gold transition-[height] duration-500 linear"></div>
+      </div>
+
+      <div class="space-y-32">
+        <!-- Step 1 -->
+        <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+          <div class="md:w-[42%] mb-8 md:mb-0 md:text-right scroll-reveal">
+            <span class="font-sans text-xs tracking-widest text-accent-gold font-bold mb-4 block">PASO 01</span>
+            <h3 class="font-serif text-3xl md:text-4xl mb-6">La Idea</h3>
+            <p class="font-sans text-text-coffee/70 text-lg leading-relaxed">
+              Envíanos tu inspiración o las medidas aproximadas de tu espacio. Te escuchamos y entendemos el propósito de tu pieza antes de proponer nada.
+            </p>
+          </div>
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-bg-cream border-2 border-text-coffee rounded-full -translate-x-1/2 z-10 group-hover:bg-accent-gold group-hover:border-accent-gold transition-all duration-300 scale-100 group-hover:scale-125"></div>
+          <div class="md:w-[42%]"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+          <div class="md:w-[42%]"></div>
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-bg-cream border-2 border-text-coffee rounded-full -translate-x-1/2 z-10 group-hover:bg-accent-gold group-hover:border-accent-gold transition-all duration-300 scale-100 group-hover:scale-125"></div>
+          <div class="md:w-[42%] mt-8 md:mt-0 scroll-reveal">
+            <span class="font-sans text-xs tracking-widest text-accent-gold font-bold mb-4 block">PASO 02</span>
+            <h3 class="font-serif text-3xl md:text-4xl mb-6">El Diseño</h3>
+            <p class="font-sans text-text-coffee/70 text-lg leading-relaxed">
+              Recibe una propuesta personalizada. Refinamos cada detalle estético y funcional contigo. Nada pasa a taller sin su aprobación total.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+          <div class="md:w-[42%] mb-8 md:mb-0 md:text-right scroll-reveal">
+            <span class="font-sans text-xs tracking-widest text-accent-gold font-bold mb-4 block">PASO 03</span>
+            <h3 class="font-serif text-3xl md:text-4xl mb-6">La Creación</h3>
+            <p class="font-sans text-text-coffee/70 text-lg leading-relaxed">
+              Fabricación local con supervisión directa. Aquí no hay procesos industriales masivos, solo manos expertas trabajando materiales nobles.
+            </p>
+          </div>
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-bg-cream border-2 border-text-coffee rounded-full -translate-x-1/2 z-10 group-hover:bg-accent-gold group-hover:border-accent-gold transition-all duration-300 scale-100 group-hover:scale-125"></div>
+          <div class="md:w-[42%]"></div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+          <div class="md:w-[42%]"></div>
+          <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-bg-cream border-2 border-text-coffee rounded-full -translate-x-1/2 z-10 group-hover:bg-accent-gold group-hover:border-accent-gold transition-all duration-300 scale-100 group-hover:scale-125"></div>
+          <div class="md:w-[42%] mt-8 md:mt-0 scroll-reveal">
+            <span class="font-sans text-xs tracking-widest text-accent-gold font-bold mb-4 block">PASO 04</span>
+            <h3 class="font-serif text-3xl md:text-4xl mb-6">La Llegada</h3>
+            <p class="font-sans text-text-coffee/70 text-lg leading-relaxed">
+              Instalación profesional en su domicilio por nuestro propio equipo. Dejamos cada pieza lista para ser el nuevo corazón de su hogar.
+            </p>
+            <p class="mt-4 font-sans text-xs italic opacity-50 uppercase tracking-widest">Región Metropolitana y alrededores</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const progressLine = document.getElementById('timeline-progress');
+  const section = document.getElementById('proceso');
+  const reveals = document.querySelectorAll('.scroll-reveal');
+
+  const updateTimeline = () => {
+    if(!section || !progressLine) return;
+    
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Start tracking when section center hits window bottom
+    let progress = (windowHeight - rect.top) / (rect.height);
+    progress = Math.max(0, Math.min(1, progress));
+    
+    progressLine.style.height = `${progress * 100}%`;
+
+    // Simple scroll reveal logic
+    reveals.forEach(el => {
+      const elRect = el.getBoundingClientRect();
+      if(elRect.top < windowHeight * 0.85) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+    });
+  };
+
+  reveals.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+  });
+
+  window.addEventListener('scroll', updateTimeline);
+  window.addEventListener('resize', updateTimeline);
+  updateTimeline(); // Initial check
+</script>

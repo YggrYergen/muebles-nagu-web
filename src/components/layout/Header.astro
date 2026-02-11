@@ -1,0 +1,97 @@
+---
+import { Menu, X } from 'lucide-react';
+---
+
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div class="flex flex-col">
+      <span class="font-serif text-2xl tracking-wider uppercase">Muebles NAGU</span>
+      <span class="font-sans text-[10px] tracking-[0.2em] uppercase opacity-70">Diseño y Fabricación</span>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8 font-sans text-sm tracking-widest uppercase">
+      <a href="#filosofia" class="hover:text-accent-gold transition-colors">Filosofía</a>
+      <a href="#colecciones" class="hover:text-accent-gold transition-colors">Colecciones</a>
+      <a href="#materiales" class="hover:text-accent-gold transition-colors">Materiales</a>
+      <a href="#proceso" class="hover:text-accent-gold transition-colors">Proceso</a>
+      <a href="https://wa.me/569XXXXXXXX" class="border border-text-coffee px-6 py-2 hover:bg-text-coffee hover:text-bg-cream transition-all duration-300">
+        Cotizar
+      </a>
+    </nav>
+
+    <!-- Mobile Toggle -->
+    <button id="menu-toggle" class="md:hidden text-text-coffee p-2" aria-label="Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-bg-cream z-[60] flex flex-col items-center justify-center gap-8 -translate-y-full transition-transform duration-500 ease-in-out md:hidden">
+    <button id="menu-close" class="absolute top-6 right-6 p-2" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+    </button>
+    <a href="#filosofia" class="font-serif text-3xl hover:text-accent-gold transition-colors">Filosofía</a>
+    <a href="#colecciones" class="font-serif text-3xl hover:text-accent-gold transition-colors">Colecciones</a>
+    <a href="#materiales" class="font-serif text-3xl hover:text-accent-gold transition-colors">Materiales</a>
+    <a href="#proceso" class="font-serif text-3xl hover:text-accent-gold transition-colors">Proceso</a>
+    <a href="https://wa.me/569XXXXXXXX" class="mt-4 bg-accent-gold text-text-coffee px-10 py-4 font-sans font-bold uppercase tracking-widest shadow-luxury">
+      Cotizar Proyecto
+    </a>
+  </div>
+</header>
+
+<script>
+  let lastScroll = 0;
+  const header = document.getElementById('main-header');
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuLinks = mobileMenu?.querySelectorAll('a');
+
+  // Sticky and Hide on scroll Logic
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 50) {
+      header?.classList.add('glass-effect', 'shadow-sm');
+      header?.classList.remove('py-4');
+      header?.classList.add('py-2');
+    } else {
+      header?.classList.remove('glass-effect', 'shadow-sm');
+      header?.classList.add('py-4');
+      header?.classList.remove('py-2');
+    }
+
+    if (currentScroll > lastScroll && currentScroll > 200) {
+      // Scrolling down
+      header?.classList.add('-translate-y-full');
+    } else {
+      // Scrolling up
+      header?.classList.remove('-translate-y-full');
+    }
+    lastScroll = currentScroll;
+  });
+
+  // Mobile Menu Logic
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('-translate-y-full');
+    document.body.style.overflow = 'hidden';
+  });
+
+  const closeMenu = () => {
+    mobileMenu?.classList.add('-translate-y-full');
+    document.body.style.overflow = '';
+  };
+
+  menuClose?.addEventListener('click', closeMenu);
+  menuLinks?.forEach(link => link.addEventListener('click', closeMenu));
+</script>
+
+<style>
+  .glass-effect {
+    background: rgba(249, 247, 242, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(60, 55, 51, 0.1);
+  }
+</style>

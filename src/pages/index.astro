@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Hero from '../components/landing/Hero.astro';
+import PhilosophySection from '../components/landing/PhilosophySection.astro';
+import CollectionsGrid from '../components/landing/CollectionsGrid.astro';
+import MaterialsCarousel from '../components/landing/MaterialsCarousel';
+import ProcessTimeline from '../components/landing/ProcessTimeline.astro';
+import SocialProof from '../components/landing/SocialProof.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<Layout 
+	title="Muebles NAGU | Mobiliario a Medida & Legado en Madera Nativa"
+	description="En Muebles NAGU fabricamos piezas únicas que trascienden el retail. Especialistas en madera nativa, cocinas de autor y mobiliario personalizado de alto estándar en Chile."
+>
+	<Header />
+	
+	<main>
+		<Hero />
+		
+		<section id="filosofia-trigger">
+			<PhilosophySection />
+		</section>
+
+		<CollectionsGrid />
+		
+		<section id="materiales-trigger">
+			<MaterialsCarousel client:visible />
+		</section>
+
+		<ProcessTimeline />
+		
+		<SocialProof />
+	</main>
+	
+	<Footer />
+</Layout>
+
+<style is:global>
+	/* Transition between sections sutility */
+	section {
+		position: relative;
+	}
+</style>
