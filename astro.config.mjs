@@ -14,6 +14,11 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindv4()],
+    resolve: {
+      alias: {
+        "react-dom/server": "react-dom/server.edge",
+      },
+    },
   },
   image: {
     domains: ['mueblesnagu.cl'],
