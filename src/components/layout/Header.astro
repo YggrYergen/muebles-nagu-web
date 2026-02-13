@@ -4,10 +4,13 @@ import { Menu, X } from 'lucide-react';
 
 <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
-    <div class="flex flex-col">
-      <span class="font-serif text-2xl tracking-wider uppercase">Muebles NAGU</span>
-      <span class="font-sans text-[10px] tracking-[0.2em] uppercase opacity-70">Diseño y Fabricación</span>
-    </div>
+    <a href="/" class="flex items-center gap-3 group">
+      <img src="/images/favicon.png" alt="Muebles NAGU" class="h-10 w-auto opacity-90 group-hover:opacity-100 transition-opacity" />
+      <div class="flex flex-col">
+        <span class="font-serif text-2xl tracking-wider uppercase leading-none">Muebles NAGU</span>
+        <span class="font-sans text-[10px] tracking-[0.2em] uppercase opacity-70 group-hover:opacity-100 transition-opacity">Diseño y Fabricación</span>
+      </div>
+    </a>
 
     <!-- Desktop Nav -->
     <nav class="hidden md:flex items-center gap-8 font-sans text-sm tracking-widest uppercase">
