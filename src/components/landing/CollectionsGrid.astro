@@ -17,34 +17,38 @@
 
     <!-- Bento Grid -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px] md:auto-rows-[350px]">
-      <!-- Grande (2x2 equiv) -->
-      <div class="md:col-span-8 md:row-span-2 relative group overflow-hidden shadow-luxury">
-        <img src="/images/comoda.png" alt="Cómodas de Autor" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-12">
+      
+      <!-- Grande (2x2 equiv) - NOW COCINAS -->
+      <div class="md:col-span-8 md:row-span-2 relative group overflow-hidden shadow-luxury slideshow-container" 
+           data-images='["/images/cocina.png", "/images/cocina1.jpg", "/images/cocina2.jpg", "/images/cocina3.jpg", "/images/cocina4.jpg"]'>
+        <img src="/images/cocina.png" alt="Cocinas Vivientes" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 active-slide absolute inset-0" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-12 z-20 pointer-events-none">
           <span class="font-sans text-[10px] tracking-[0.3em] uppercase text-accent-gold mb-2 block">Producto Estrella</span>
-          <h3 class="font-serif text-bg-cream text-4xl md:text-5xl mb-4">Cómodas de Autor</h3>
-          <p class="font-sans text-bg-cream/70 max-w-md text-sm leading-relaxed">Cada veta cuenta una historia. Diseños robustos con terminaciones de guante.</p>
+          <h3 class="font-serif text-bg-cream text-4xl md:text-5xl mb-4">Cocinas Vivientes</h3>
+          <p class="font-sans text-bg-cream/70 max-w-md text-sm leading-relaxed">Islas y espacios diseñados para ser el corazón del hogar.</p>
         </div>
-        <div class="absolute top-8 right-8">
+        <div class="absolute top-8 right-8 z-20">
            <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 -translate-y-4 group-hover:translate-y-0 transition-all duration-500">
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
            </div>
         </div>
       </div>
 
-      <!-- Alta (1x2 equiv) -->
-      <div class="md:col-span-4 md:row-span-2 relative group overflow-hidden shadow-luxury">
-        <img src="/images/hero.png" alt="Cocinas" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-          <h3 class="font-serif text-bg-cream text-3xl mb-2">Cocinas Vivientes</h3>
-          <p class="font-sans text-bg-cream/70 text-sm">Islas y espacios diseñados para ser el corazón del hogar.</p>
+      <!-- Alta (1x2 equiv) - NOW CÓMODAS -->
+      <div class="md:col-span-4 md:row-span-2 relative group overflow-hidden shadow-luxury slideshow-container"
+           data-images='["/images/comoda.png", "/images/comoda1.jpg", "/images/comoda2.jpg", "/images/comoda3.jpg", "/images/comoda4.jpg"]'>
+        <img src="/images/comoda.png" alt="Cómodas de Autor" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 active-slide absolute inset-0" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 z-20 pointer-events-none">
+          <h3 class="font-serif text-bg-cream text-3xl mb-2">Cómodas de Autor</h3>
+          <p class="font-sans text-bg-cream/70 text-sm">Cada veta cuenta una historia. Terminaciones de guante.</p>
         </div>
       </div>
 
-      <!-- Ancha (2x1 equiv) -->
-      <div class="md:col-span-6 md:row-span-1 relative group overflow-hidden shadow-luxury">
-        <img src="/images/closet.png" alt="Closets" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+      <!-- Ancha (2x1 equiv) - CLOSETS -->
+      <div class="md:col-span-6 md:row-span-1 relative group overflow-hidden shadow-luxury slideshow-container"
+           data-images='["/images/closet.png", "/images/closet1.png", "/images/closet2.png", "/images/closet3.png", "/images/closet4.png"]'>
+        <img src="/images/closet.png" alt="Closets" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 active-slide absolute inset-0" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 z-20 pointer-events-none">
           <h3 class="font-serif text-bg-cream text-3xl">Closets & Organización</h3>
         </div>
       </div>
@@ -64,3 +68,79 @@
     </div>
   </div>
 </section>
+
+<script>
+  function initSlideshows() {
+    const containers = document.querySelectorAll('.slideshow-container');
+    
+    containers.forEach(container => {
+      const images = JSON.parse(container.getAttribute('data-images') || '[]');
+      if (images.length <= 1) return;
+
+      let currentIndex = 0;
+      let nextIndex = 1;
+      
+      const currentImg = container.querySelector('.active-slide');
+      
+      // Create next image element with same classes for consistency, but initially hidden
+      const nextImg = document.createElement('img');
+      // Copy classes but reset specific styles
+      nextImg.className = currentImg.className;
+      nextImg.classList.remove('active-slide'); // Remove marker class if needed, or keep it, doesn't matter much
+      // Ensure it starts hidden and low z-index
+      nextImg.style.opacity = '0';
+      nextImg.style.zIndex = '1';
+      // We need to manage transitions manually to combine opacity (JS driven) and transform (CSS hover)
+      // Actually, we can just use class names for the hover/transform, and inline style for opacity transition
+      nextImg.style.transition = 'opacity 1000ms ease-in-out, transform 1000ms';
+      
+      container.insertBefore(nextImg, container.firstChild); 
+
+      if(currentImg) {
+        currentImg.style.zIndex = '2';
+        currentImg.style.transition = 'opacity 1000ms ease-in-out, transform 1000ms';
+      }
+
+      setInterval(() => {
+        // Prepare next image
+        nextImg.src = images[nextIndex];
+        
+        // Bring next image to top (visual) and fade in
+        nextImg.style.zIndex = '3';
+        // Force reflow
+        void nextImg.offsetWidth;
+        nextImg.style.opacity = '1';
+        
+        // After transition completion
+        setTimeout(() => {
+          // Swap sources: current becomes the new image
+          if(currentImg) currentImg.src = images[nextIndex];
+          
+          // Reset "next" image to be ready for the *next* cycle
+          // It needs to go back to invisible and behind
+          nextImg.style.transition = 'none'; // Disable transition for reset
+          nextImg.style.opacity = '0';
+          nextImg.style.zIndex = '1';
+          
+          // Force reflow
+          void nextImg.offsetWidth;
+          
+          // Restore transition for next fade in
+          nextImg.style.transition = 'opacity 1000ms ease-in-out, transform 1000ms';
+          
+          // Update indices
+          currentIndex = nextIndex;
+          nextIndex = (nextIndex + 1) % images.length;
+        }, 1200); // Wait slightly longer than transition
+        
+      }, 5000 + Math.random() * 2000); 
+    });
+  }
+
+  document.addEventListener('astro:page-load', initSlideshows);
+  if (document.readyState === 'complete') {
+    initSlideshows();
+  } else {
+    document.addEventListener('DOMContentLoaded', initSlideshows);
+  }
+</script>
