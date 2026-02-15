@@ -1,0 +1,37 @@
+---
+---
+
+<section id="servicios" class="py-24 px-6 md:py-32 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="block font-sans text-xs tracking-[0.4em] uppercase mb-4 text-accent-gold">
+        🛠️ SERVICIOS
+      </span>
+      <h2 class="font-serif text-5xl md:text-7xl mb-6">Fabricación personalizada</h2>
+      <p class="font-sans text-text-coffee/60 text-lg uppercase tracking-widest">Diseñamos y fabricamos:</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+      {[
+        { title: "Cocinas a medida", icon: "🍳" },
+        { title: "Walk-in closets", icon: "👗" },
+        { title: "Closets y muebles infantiles", icon: "🧸" },
+        { title: "Línea rústica", desc: "racks, vitrinas, cómodas, veladores", icon: "🪵" },
+        { title: "Mobiliario de oficina", desc: "escritorios, estaciones de trabajo, bibliotecas", icon: "💼" },
+        { title: "Proyectos especiales", desc: "Según requerimiento", icon: "✨" }
+      ].map((service) => (
+        <div class="border border-text-coffee/10 p-10 hover:border-accent-gold transition-colors duration-500 group">
+          <div class="text-4xl mb-6 group-hover:scale-110 transition-transform duration-500 inline-block">{service.icon}</div>
+          <h3 class="font-serif text-2xl mb-4">{service.title}</h3>
+          {service.desc && <p class="font-sans text-sm text-text-coffee/60 leading-relaxed">{service.desc}</p>}
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-bg-cream/50 p-12 border-l-4 border-accent-gold max-w-4xl">
+      <p class="font-sans text-xl md:text-2xl text-text-coffee leading-relaxed">
+        "Trabajamos con <strong>madera nativa, melamina y terciado</strong>, seleccionando materiales que aseguren resistencia y larga vida útil."
+      </p>
+    </div>
+  </div>
+</section>

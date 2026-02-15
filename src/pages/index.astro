@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/layout/Header.astro';
 import Hero from '../components/landing/Hero.astro';
 import PhilosophySection from '../components/landing/PhilosophySection.astro';
+import Services from '../components/landing/Services.astro';
 import CollectionsGrid from '../components/landing/CollectionsGrid.astro';
+import WhyChooseUs from '../components/landing/WhyChooseUs.astro';
 import MaterialsCarousel from '../components/landing/MaterialsCarousel';
 import ProcessTimeline from '../components/landing/ProcessTimeline.astro';
 import SocialProof from '../components/landing/SocialProof.astro';
@@ -11,25 +13,32 @@ import Footer from '../components/layout/Footer.astro';
 ---
 
 <Layout 
-	title="Muebles NAGU | Mobiliario a Medida & Legado en Madera Nativa"
-	description="En Muebles NAGU fabricamos piezas únicas que trascienden el retail. Especialistas en madera nativa, cocinas de autor y mobiliario personalizado de alto estándar en Chile."
+	title="Muebles NAGU | Mobiliario a Medida"
+	description="Fabricación de muebles a medida con compromiso real y durabilidad extrema en melamina y línea rústica."
 >
 	<Header />
 	
 	<main>
 		<Hero />
 		
-		<section id="filosofia-trigger">
+		<section id="nosotros">
 			<PhilosophySection />
 		</section>
 
+		<Services />
+
 		<CollectionsGrid />
 		
+		<WhyChooseUs />
+
+		{/* Hiding sections not mentioned in new text to strictly follow client request */}
+		{/* 
 		<section id="materiales-trigger">
 			<MaterialsCarousel client:visible />
 		</section>
 
 		<ProcessTimeline />
+		*/}
 		
 		<SocialProof />
 	</main>

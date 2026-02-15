@@ -5,44 +5,37 @@
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
     <!-- Text Content -->
     <div class="w-full md:w-[45%]">
+      <span class="block font-sans text-xs tracking-[0.4em] uppercase mb-4 text-accent-gold">
+        👩‍🔧 NOSOTROS
+      </span>
       <h2 class="font-serif text-4xl md:text-6xl mb-8 leading-tight">
-        La antítesis de lo desechable.
+        Compromiso real en cada detalle.
       </h2>
       <p class="font-sans text-text-coffee/80 text-lg mb-12 leading-relaxed">
-        Muebles NAGU nace como una respuesta necesaria a la frustración de las grandes tiendas: entregas incorrectas, materiales que no duran y diseños genéricos. Nosotros elegimos otro camino.
+        En <strong>muebles.nagu</strong> nos dedicamos a la fabricación de muebles a medida en melamina y línea rústica. <br/><br/>
+        Nacimos con la convicción de hacer las cosas bien: entregar calidad, responsabilidad y atención personalizada en cada proyecto.
       </p>
 
-      <div class="grid gap-10">
-        <div class="flex gap-6 items-start">
-          <div class="bg-accent-gold/10 p-3 text-accent-gold">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z"></path><path d="M10 12h.01"></path><path d="M14 12h.01"></path><path d="M18 12h.01"></path><path d="M6 12h.01"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-serif text-xl mb-2">Compromiso Real</h3>
-            <p class="font-sans text-text-coffee/70 text-sm leading-relaxed">Lo que diseñamos es lo que instalamos. Sin sorpresas ni cambios de última hora.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-6 items-start">
-          <div class="bg-accent-gold/10 p-3 text-accent-gold">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-serif text-xl mb-2">Durabilidad Extrema</h3>
-            <p class="font-sans text-text-coffee/70 text-sm leading-relaxed">Muebles de madera nativa hechos para ser heredados, no reemplazados en unos años.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-6 items-start">
-          <div class="bg-accent-gold/10 p-3 text-accent-gold">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v7"></path><path d="m15 15 3 3 4-4"></path><path d="M11 3v18"></path><path d="M3 11h18"></path></svg>
-          </div>
-          <div>
-            <h3 class="font-serif text-xl mb-2">Ajuste Perfecto</h3>
-            <p class="font-sans text-text-coffee/70 text-sm leading-relaxed">Cada milímetro cuenta. Su mobiliario se adapta a su espacio, no al revés.</p>
-          </div>
+      <div class="mb-10">
+        <p class="font-sans text-text-coffee/60 text-sm mb-6 italic">Cada mueble es supervisado cuidadosamente para garantizar:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            "Durabilidad extrema",
+            "Terminaciones de calidad",
+            "Diseño funcional",
+            "Satisfacción del cliente"
+          ].map((item) => (
+            <div class="flex items-center gap-3">
+              <span class="text-accent-gold font-bold">✔</span>
+              <span class="font-sans text-sm text-text-coffee/80">{item}</span>
+            </div>
+          ))}
         </div>
       </div>
+
+      <p class="font-serif text-2xl italic text-text-coffee border-l-4 border-accent-gold pl-6 py-2">
+        Más que fabricar muebles, creamos espacios que acompañan tu hogar por años.
+      </p>
     </div>
 
     <!-- Image Content -->
@@ -50,16 +43,9 @@
       <div class="aspect-[4/5] overflow-hidden shadow-luxury rounded-sm">
         <img 
           src="/images/cocina.png" 
-          alt="Cocina a medida Muebles NAGU" 
+          alt="Muebles a medida NAGU" 
           class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
         />
-      </div>
-      <!-- Floating Detail Card -->
-      <div class="absolute -bottom-10 -right-6 md:right-10 bg-bg-forest text-bg-cream p-8 max-w-[280px] shadow-luxury">
-        <span class="font-sans text-[10px] tracking-[0.3em] uppercase opacity-60 mb-2 block">Detalle Artesanal</span>
-        <p class="font-serif text-xl italic leading-tight">
-          "Elegimos el camino de la dedicación, no el de la línea de montaje."
-        </p>
       </div>
     </div>
   </div>

@@ -17,21 +17,36 @@ import heroImg from '../../public/images/hero.png';
   <!-- Content -->
   <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
     <span class="block font-sans text-bg-cream text-xs md:text-sm tracking-[0.4em] uppercase mb-6 animate-fade-up opacity-0">
-      DISEÑO Y FABRICACIÓN A MEDIDA
+      🏠 INICIO
     </span>
     
-    <h1 class="font-serif text-bg-cream text-5xl md:text-8xl leading-tight mb-8 animate-fade-up [animation-delay:200ms] opacity-0">
-      No fabricamos en serie.<br />
-      <span class="italic">Fabricamos Legado.</span>
+    <h1 class="font-serif text-bg-cream text-4xl md:text-7xl leading-tight mb-8 animate-fade-up [animation-delay:200ms] opacity-0">
+      Muebles a medida con <br class="hidden md:block" />
+      <span class="italic">compromiso real y durabilidad extrema.</span>
     </h1>
 
-    <p class="font-sans text-bg-cream/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up [animation-delay:400ms] opacity-0">
-      Olvida la obsolescencia. En Muebles NAGU creamos piezas en madera nativa que se adaptan a tu espacio, no al revés.
+    <p class="font-sans text-bg-cream/90 text-lg md:text-xl max-w-3xl mx-auto mb-10 animate-fade-up [animation-delay:400ms] opacity-0">
+      Creamos muebles personalizados que se adaptan a tu espacio, estilo y necesidades, trabajando cada detalle con dedicación, materiales de alta calidad y cumplimiento garantizado.
     </p>
 
+    <!-- Value Props Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12 animate-fade-up [animation-delay:500ms] opacity-0">
+      {[
+        "Diseño personalizado",
+        "Fabricación minuciosa",
+        "Instalación en terreno",
+        "Cumplimiento en tiempos acordados"
+      ].map((item) => (
+        <div class="flex items-center justify-center gap-2 bg-black/20 backdrop-blur-sm py-3 px-4 rounded-sm border border-white/10">
+          <span class="text-accent-gold">🔹</span>
+          <span class="text-bg-cream text-sm font-sans tracking-wide">{item}</span>
+        </div>
+      ))}
+    </div>
+
     <div class="animate-fade-up [animation-delay:600ms] opacity-0">
-      <a href="https://wa.me/569XXXXXXXX" class="inline-block bg-accent-gold text-text-coffee px-10 py-5 font-sans font-bold uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-luxury">
-        Iniciar Mi Proyecto
+      <a href="https://wa.me/56945104564" class="inline-block bg-accent-gold text-text-coffee px-10 py-5 font-sans font-bold uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-luxury">
+        👉 Solicita tu cotización
       </a>
     </div>
   </div>

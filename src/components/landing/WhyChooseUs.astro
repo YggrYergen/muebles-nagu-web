@@ -1,0 +1,30 @@
+---
+---
+
+<section id="por-que-elegirnos" class="py-24 px-6 md:py-32 bg-bg-forest text-bg-cream">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="block font-sans text-xs tracking-[0.4em] uppercase mb-4 text-accent-gold">
+        ⭐ POR QUÉ ELEGIRNOS
+      </span>
+      <h2 class="font-serif text-5xl md:text-7xl">Nuestra diferencia</h2>
+    </div>
+
+    <div class="space-y-6 max-w-3xl mx-auto">
+      {[
+        "Compromiso real desde el diseño hasta la entrega",
+        "Atención directa y personalizada",
+        "Supervisión en terreno",
+        "Más de 80 modelos disponibles",
+        "Fabricación responsable y detallada"
+      ].map((item) => (
+        <div class="flex items-start gap-6 bg-white/5 p-8 border border-white/5 hover:border-accent-gold/30 transition-all duration-500">
+          <div class="bg-accent-gold text-text-coffee w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+            ✔
+          </div>
+          <p class="font-sans text-lg md:text-xl">{item}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
